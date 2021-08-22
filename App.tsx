@@ -1,13 +1,28 @@
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
+import { NativeBaseProvider } from 'native-base';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { AboutScreen } from './screens/About';
+import { GameScreen } from './screens/Game';
+import { HomeScreen } from './screens/Home';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeBaseProvider>
+      <StatusBar />
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name='Home' component={HomeScreen} />
+          <Stack.Screen name='About' component={AboutScreen} />
+          <Stack.Screen name='Game' component={GameScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </NativeBaseProvider>
   );
 }
 
