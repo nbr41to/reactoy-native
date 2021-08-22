@@ -48,5 +48,5 @@ yarn add styled-components
 typescript
 
 ```sh
-yarn add @types/styled-components @types/styled-components-react-native
+yarn add -D @types/styled-components @types/styled-components-react-native
 ```
